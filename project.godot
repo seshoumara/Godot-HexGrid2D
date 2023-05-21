@@ -1,0 +1,61 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "BaseGrid2D",
+"language": "GDScript",
+"path": "res://Logic/BaseGrid2D.gd"
+}, {
+"base": "Reference",
+"class": "Hex2D",
+"language": "GDScript",
+"path": "res://Logic/Hex2D.gd"
+}, {
+"base": "BaseGrid2D",
+"class": "HexGrid2D",
+"language": "GDScript",
+"path": "res://Logic/HexGrid2D.gd"
+}, {
+"base": "BaseGrid2D",
+"class": "RectGrid2D",
+"language": "GDScript",
+"path": "res://Logic/RectGrid2D.gd"
+}, {
+"base": "Reference",
+"class": "Voronoi",
+"language": "GDScript",
+"path": "res://Logic/Voronoi.gd"
+} ]
+_global_script_class_icons={
+"BaseGrid2D": "",
+"Hex2D": "",
+"HexGrid2D": "",
+"RectGrid2D": "",
+"Voronoi": ""
+}
+
+[application]
+
+config/name="HexGrid2D"
+run/main_scene="res://Voronoi_generator/Voronoi_generator.tscn"
+config/icon="res://icon.png"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

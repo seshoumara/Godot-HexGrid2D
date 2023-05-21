@@ -1,0 +1,177 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Voronoi_generator/Canvas.gd" type="Script" id=1]
+[ext_resource path="res://Voronoi_generator/Voronoi_generator.gd" type="Script" id=2]
+
+[node name="Voronoi_generator" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+margin_right = 173.0
+margin_bottom = 600.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="Settings" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 163.0
+margin_bottom = 590.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Generate_grid_settings" type="HBoxContainer" parent="HBoxContainer/MarginContainer/Settings"]
+margin_right = 153.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cell_type_lbl" type="Label" parent="HBoxContainer/MarginContainer/Settings/Generate_grid_settings"]
+margin_right = 74.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Cell type"
+align = 1
+valign = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/MarginContainer/Settings/Generate_grid_settings"]
+margin_left = 78.0
+margin_right = 153.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cell_type" type="OptionButton" parent="HBoxContainer/MarginContainer/Settings/Generate_grid_settings/CenterContainer"]
+margin_top = 21.0
+margin_right = 75.0
+margin_bottom = 71.0
+rect_min_size = Vector2( 75, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Hex2D"
+items = [ "Rect2", null, false, 0, null, "Hex2D", null, false, 1, null ]
+selected = 1
+
+[node name="CenterContainer1" type="CenterContainer" parent="HBoxContainer/MarginContainer/Settings"]
+margin_top = 97.0
+margin_right = 153.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Generate_grid" type="Button" parent="HBoxContainer/MarginContainer/Settings/CenterContainer1"]
+margin_top = 21.0
+margin_right = 153.0
+margin_bottom = 71.0
+rect_min_size = Vector2( 153, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Generate grid"
+
+[node name="Generate_points_settings" type="HBoxContainer" parent="HBoxContainer/MarginContainer/Settings"]
+margin_top = 194.0
+margin_right = 153.0
+margin_bottom = 288.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Total_points_lbl" type="Label" parent="HBoxContainer/MarginContainer/Settings/Generate_points_settings"]
+margin_right = 75.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Total points"
+align = 1
+valign = 1
+
+[node name="Total_points" type="HSlider" parent="HBoxContainer/MarginContainer/Settings/Generate_points_settings"]
+margin_left = 79.0
+margin_right = 153.0
+margin_bottom = 94.0
+hint_tooltip = "10 -> 100, step 5"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+min_value = 10.0
+step = 5.0
+value = 10.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer/MarginContainer/Settings"]
+margin_top = 292.0
+margin_right = 153.0
+margin_bottom = 385.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Generate_points" type="Button" parent="HBoxContainer/MarginContainer/Settings/CenterContainer2"]
+margin_top = 21.0
+margin_right = 153.0
+margin_bottom = 71.0
+rect_min_size = Vector2( 153, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Generate points"
+
+[node name="CenterContainer3" type="CenterContainer" parent="HBoxContainer/MarginContainer/Settings"]
+margin_top = 389.0
+margin_right = 153.0
+margin_bottom = 482.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Generate_cluster_cells" type="Button" parent="HBoxContainer/MarginContainer/Settings/CenterContainer3"]
+margin_top = 21.0
+margin_right = 153.0
+margin_bottom = 71.0
+rect_min_size = Vector2( 153, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Generate cluster cells"
+
+[node name="CenterContainer4" type="CenterContainer" parent="HBoxContainer/MarginContainer/Settings"]
+margin_top = 486.0
+margin_right = 153.0
+margin_bottom = 580.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Generate_clusters" type="Button" parent="HBoxContainer/MarginContainer/Settings/CenterContainer4"]
+margin_top = 22.0
+margin_right = 153.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 153, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Generate clusters"
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+margin_left = 177.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Canvas" type="Control" parent="HBoxContainer/CenterContainer"]
+margin_left = 123.0
+margin_right = 723.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 600, 600 )
+script = ExtResource( 1 )
+
+[connection signal="item_selected" from="HBoxContainer/MarginContainer/Settings/Generate_grid_settings/CenterContainer/Cell_type" to="." method="_on_Cell_type_item_selected"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/Settings/CenterContainer1/Generate_grid" to="." method="_on_Generate_grid_pressed"]
+[connection signal="drag_ended" from="HBoxContainer/MarginContainer/Settings/Generate_points_settings/Total_points" to="." method="_on_Total_points_drag_ended"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/Settings/CenterContainer2/Generate_points" to="." method="_on_Generate_points_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/Settings/CenterContainer3/Generate_cluster_cells" to="." method="_on_Generate_cluster_cells_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/Settings/CenterContainer4/Generate_clusters" to="." method="_on_Generate_clusters_pressed"]
